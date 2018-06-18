@@ -1,0 +1,17 @@
+<#list list as num>
+	${num} <#if num_has_next>,</#if>
+</#list>	
+
+
+
+获取map中的key和value
+key:
+把数据模型中的map属性 赋值给h变量
+<#assign h=map>
+获取到h中的所有的key的集合
+<#assign keys=h?keys>
+<#list keys as key>
+${key}  ===> ${h[key]}
+<#if key_has_next>,</#if>
+${r'#'}{
+</#list>	

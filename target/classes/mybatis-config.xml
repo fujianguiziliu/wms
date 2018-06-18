@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+     PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+     "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+	<!-- 和MyBatis框架自身的设置 -->
+	<settings>
+		<!-- 开启延迟加载 -->
+		<setting name="lazyLoadingEnabled" value="true" />
+		<!-- 禁止访问主对象中的所有的属性都会去触发延迟加载 -->
+		<setting name="aggressiveLazyLoading" value="false" />
+		<!-- 指定哪些Object中的方法可以触发延迟加载 -->
+		<setting name="lazyLoadTriggerMethods" value="clone" />
+	</settings>
+</configuration>

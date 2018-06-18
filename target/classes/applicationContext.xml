@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd">
+	<!-- 加载db.proerties文件 -->
+	<context:property-placeholder location="classpath:db.properties" />
+	<!-- 配置连接池 -->
+	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"
+		init-method="init" destroy-method="close">
+		<property name="driverClassName" value="${db.driver}"/>
+		<property name="url" value="${db.url}"/>
+		<property name="username" value="${db.username}"/>
+		<property name="password" value="${db.password}"/>
+		<property name="filters" value="config,stat" />
+     	<property name="connectionProperties" value="config.decrypt=true"/>
+		<!-- p:driverClassName="${db.driver}" p:url="${db.url}" p:username="${db.username}"
+		p:password="${db.password}" init-method="init" destroy-method="close"> -->
+	</bean>
+	<!-- 配置SqlSessionFactoy:将之前在mybatis-config.xml文件中的相关配置移动到这里来统一配置 -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<!-- 设置连接池 -->
+		<property name="dataSource" ref="dataSource"></property>
+		<!-- 加载mybatis-config.xml文件 -->
+		<property name="configLocation" value="classpath:mybatis-config.xml"></property>
+		<!-- 加载mapper文件 -->
+		<property name="mapperLocations" value="classpath:com.xmg.pss.mapper.*Mapper.xml"></property>
+		<!-- 扫描指定包中的类,自动的生成别名 -->
+		<property name="typeAliasesPackage" value="com.xmg.pss.domain"></property>
+	</bean>
+
+	<!-- 配置事务管理器 -->
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+
+	<!-- 配置事务方法的属性 -->
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="get*" read-only="true" />
+			<tx:method name="list*" read-only="true" />
+			<tx:method name="query*" read-only="true" />
+			<tx:method name="*" />
+		</tx:attributes>
+	</tx:advice>
+
+	<!-- 通过AOP将事务管理操作织入到service这一层 -->
+	<aop:config>
+		<aop:pointcut expression="execution(* com.xmg.pss.service.*.*(..))"
+			id="pc" />
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="pc" />
+	</aop:config>
+
+	<import resource="classpath:applicationContext-action.xml"/>
+	<import resource="classpath:applicationContext-service.xml"/>
+	<import resource="classpath:applicationContext-mapper.xml"/>
+
+</beans>
