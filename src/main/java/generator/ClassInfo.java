@@ -1,7 +1,8 @@
 package generator;
 
 import com.xmg.wms.domain.BasicDomain;
-import com.xmg.wms.domain.Cat;
+import com.xmg.wms.domain.Dog;
+
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -51,7 +52,7 @@ public class ClassInfo {
     }
 
     public static void main(String[] args) throws  Exception {
-        System.out.println(new ClassInfo(Cat.class));
+        System.out.println(new ClassInfo(Dog.class));
     }
 
 }

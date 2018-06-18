@@ -9,6 +9,8 @@ import java.io.IOException;
 import java.io.StringWriter;
 import java.text.MessageFormat;
 
+import com.xmg.wms.domain.Dog;
+
 public class CodeGenerator {
 	private static Configuration conf = new Configuration(Configuration.VERSION_2_3_0);
 	static{
@@ -21,7 +23,7 @@ public class CodeGenerator {
 	}
 	public static void main(String[] args) throws Exception{
 		System.out.println("执行开始.......");
-//		codeGenerator(Dog.class);
+	//	codeGenerator(Dog.class);
 		System.out.println("执行完毕。。。。。。");
 		
 	}

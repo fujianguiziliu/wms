@@ -10,9 +10,9 @@ import lombok.Setter;
 
 @Setter
 @Getter
-@ObjectProp("小猫")
+@ObjectProp("小狗")
 
-public class Cat extends BasicDomain {
+public class Dog extends BasicDomain {
 	
 	@ObjectProp("编码")
 	private String name;
