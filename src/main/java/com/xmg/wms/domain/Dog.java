@@ -2,8 +2,6 @@ package com.xmg.wms.domain;
 
 import generator.ObjectProp;
 
-import java.util.ArrayList;
-import java.util.List;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -15,10 +13,10 @@ import lombok.Setter;
 public class Dog extends BasicDomain {
 	
 	@ObjectProp("编码")
-	private String name;
+	private String sn;
 	
 	@ObjectProp("名称")
-	private String sn;
+	private String name;
 
 
 }

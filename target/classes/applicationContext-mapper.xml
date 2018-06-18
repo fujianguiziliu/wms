@@ -29,4 +29,22 @@
 <bean id="dogMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
     <property name="mapperInterface" value="com.xmg.wms.mapper.DogMapper"/>
     <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+</bean><bean id="catMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+    <property name="mapperInterface" value="com.xmg.wms.mapper.CatMapper"/>
+    <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+</bean><bean id="dogMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+    <property name="mapperInterface" value="com.xmg.wms.mapper.DogMapper"/>
+    <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+</bean><bean id="dogMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+    <property name="mapperInterface" value="com.xmg.wms.mapper.DogMapper"/>
+    <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+</bean><bean id="dogMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+    <property name="mapperInterface" value="com.xmg.wms.mapper.DogMapper"/>
+    <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+</bean><bean id="dogMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+    <property name="mapperInterface" value="com.xmg.wms.mapper.DogMapper"/>
+    <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+</bean><bean id="dogMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+    <property name="mapperInterface" value="com.xmg.wms.mapper.DogMapper"/>
+    <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
 </bean></beans>

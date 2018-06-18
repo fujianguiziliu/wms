@@ -9,14 +9,14 @@
     <script type="text/javascript" src="/js/jquery/jquery.js"></script>
     <script type="text/javascript" src="/js/artDialog/jquery.artDialog.js?skin=blue"></script>
     <script type="text/javascript" src="/js/commonAll.js"></script>
-    <title>PSS-${objectCNName}管理</title>
+    <title>PSS-小狗管理</title>
     <style>
         .alt td{ background:black !important;}
     </style>
 </head>
 <body>
 <%@include file="/WEB-INF/views/common/common_message.jsp"%>
- <s:form id="searchForm" action="${objectName}" namespace="/" method="post">
+ <s:form id="searchForm" action="dog" namespace="/" method="post">
     <div id="container">
         <div class="ui_content">
             <div class="ui_text_indent">
@@ -34,9 +34,9 @@
                         <input type="button" value="查询" class="ui_input_btn01 btn_page"  data-page="1"/>
 
                         <input type="button" value="新增" class="ui_input_btn01 btn_input"
-                               data-url="<s:url namespace="/" action="${objectName}_input"/>"/>
+                               data-url="<s:url namespace="/" action="dog_input"/>"/>
                        <input type="button" value="批量删除" class="ui_input_btn01 btn_batchDelete"
-                               data-url="<s:url namespace="/" action="${objectName}_batchDelete"/>"/>
+                               data-url="<s:url namespace="/" action="dog_batchDelete"/>"/>
                     </div>
                 </div>
             </div>
@@ -48,14 +48,12 @@
                         <th width="30"><input type="checkbox" id="all" /></th>
                         <th>编号</th>
                        <%-- 定义一个变量,接收数据模型里面的表达式--%>
-                        <#assign h = fieldMap>
                             <%--h?keys: h是一个map结构的数据,代表获取到h里面的key的集合--%>
-                            <#assign keys = h?keys>
                                 <%--遍历keys集合,把每次遍历的数据赋值给变量 key--%>
-                                <#list keys as key>
-                                        <%--${h[key]}:从map里面去去key对应的数据信息:中文名称--%>
-                                    <th>${h[key]}</th>
-                                </#list>
+                                        <%--编码:从map里面去去key对应的数据信息:中文名称--%>
+                                    <th>编码</th>
+                                        <%--名称:从map里面去去key对应的数据信息:中文名称--%>
+                                    <th>名称</th>
                         <th>操作</th>
                     </tr>
                     <tbody>
@@ -63,15 +61,14 @@
                         <tr>
                             <td><input type="checkbox" name="IDCheck" class="acb" data-oid="<s:property value="id"/>"/></td>
                             <td><s:property value="id"/></td>
-                            <#list keys as key>
-                                <td><s:property value="${key}"/> </td>
-                            </#list>
+                                <td><s:property value="sn"/> </td>
+                                <td><s:property value="name"/> </td>
                             <td>
-                                <s:a namespace="" action="${objectName}_input">
-                                    <s:param name="${objectName}.id" value="id"></s:param>
+                                <s:a namespace="" action="dog_input">
+                                    <s:param name="dog.id" value="id"></s:param>
                                     编辑</s:a>
-                                <s:url namespace="" action="${objectName}_delete" var="deleteUrl">
-                                    <s:param name="${objectName}.id" value="id"></s:param>
+                                <s:url namespace="" action="dog_delete" var="deleteUrl">
+                                    <s:param name="dog.id" value="id"></s:param>
                                 </s:url>
                                 <a href="javascript:;" class="btn_delete" data-url="<s:property value="#deleteUrl"/>">
                                     删除

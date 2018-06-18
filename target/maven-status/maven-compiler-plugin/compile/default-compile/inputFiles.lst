@@ -8,7 +8,9 @@ E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\wms\service\impl\PermissionS
 E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\wms\mapper\DepartmentMapper.java
 E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\wms\util\RequiredPermission.java
 E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\wms\domain\Permission.java
+E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\wms\service\impl\DogServiceImpl.java
 E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\wms\service\IRoleService.java
+E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\wms\query\DogQueryObject.java
 E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\wms\query\DepartmentQueryObject.java
 E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\wms\web\action\BaseAction.java
 E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\wms\web\action\PermissionAction.java
@@ -17,6 +19,7 @@ E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\wms\mapper\PermissionMapper.
 E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\wms\query\QueryObject.java
 E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\wms\web\action\LoginAction.java
 E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\wms\mapper\TeacherMapper.java
+E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\wms\domain\Dog.java
 E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\wms\web\action\RoleAction.java
 E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\wms\domain\Employee.java
 E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\wms\util\MD5.java
@@ -30,13 +33,15 @@ E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\wms\mapper\BasicMapper.java
 E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\wms\service\IEmployeeService.java
 E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\wms\query\EmployeeQueryObject.java
 E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\wms\domain\BasicDomain.java
+E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\wms\web\action\DogAction.java
 E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\wms\mapper\StudentMapper.java
 E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\wms\web\interceptor\CheckLoginInterceptor.java
-E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\wms\domain\Cat.java
 E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\wms\web\action\EmployeeAction.java
 E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\wms\domain\Student.java
+E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\wms\service\IDogService.java
 E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\wms\domain\Role.java
 E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\wms\service\impl\RoleServiceImpl.java
 E:\BigOpenSource\javaApps\wms\src\main\java\generator\XmlUtil.java
 E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\wms\web\action\DepartmentAction.java
+E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\wms\mapper\DogMapper.java
 E:\BigOpenSource\javaApps\wms\src\main\java\generator\CodeGenerator.java

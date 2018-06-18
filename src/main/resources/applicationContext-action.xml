@@ -22,4 +22,16 @@
 
 <bean id="dogAction" class="com.xmg.wms.web.action.DogAction" scope="prototype">
 	<property name="dogService" ref="dogService"/>
+</bean><bean id="catAction" class="com.xmg.wms.web.action.CatAction" scope="prototype">
+	<property name="catService" ref="catService"/>
+</bean><bean id="dogAction" class="com.xmg.wms.web.action.DogAction" scope="prototype">
+	<property name="dogService" ref="dogService"/>
+</bean><bean id="dogAction" class="com.xmg.wms.web.action.DogAction" scope="prototype">
+	<property name="dogService" ref="dogService"/>
+</bean><bean id="dogAction" class="com.xmg.wms.web.action.DogAction" scope="prototype">
+	<property name="dogService" ref="dogService"/>
+</bean><bean id="dogAction" class="com.xmg.wms.web.action.DogAction" scope="prototype">
+	<property name="dogService" ref="dogService"/>
+</bean><bean id="dogAction" class="com.xmg.wms.web.action.DogAction" scope="prototype">
+	<property name="dogService" ref="dogService"/>
 </bean></beans>
