@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.xmg.pss.domain.Permission;
-import com.xmg.pss.service.IPermissionService;
+import com.xmg.wms.domain.Permission;
+import com.xmg.wms.service.IPermissionService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:applicationContext.xml")
