@@ -15,18 +15,6 @@
 	<bean id="roleService" class="com.xmg.pss.service.impl.RoleServiceImpl">
 		<property name="roleMapper" ref="roleMapper"/>
 	</bean>
-<bean id="dogService" class="com.xmg.wms.service.impl.DogServiceImpl">
-	<property name="dogMapper" ref="dogMapper"/>
-</bean><bean id="catService" class="com.xmg.wms.service.impl.CatServiceImpl">
+<bean id="catService" class="com.xmg.pss.service.impl.CatServiceImpl">
 	<property name="catMapper" ref="catMapper"/>
-</bean><bean id="dogService" class="com.xmg.wms.service.impl.DogServiceImpl">
-	<property name="dogMapper" ref="dogMapper"/>
-</bean><bean id="dogService" class="com.xmg.wms.service.impl.DogServiceImpl">
-	<property name="dogMapper" ref="dogMapper"/>
-</bean><bean id="dogService" class="com.xmg.wms.service.impl.DogServiceImpl">
-	<property name="dogMapper" ref="dogMapper"/>
-</bean><bean id="dogService" class="com.xmg.wms.service.impl.DogServiceImpl">
-	<property name="dogMapper" ref="dogMapper"/>
-</bean><bean id="dogService" class="com.xmg.wms.service.impl.DogServiceImpl">
-	<property name="dogMapper" ref="dogMapper"/>
 </bean></beans>

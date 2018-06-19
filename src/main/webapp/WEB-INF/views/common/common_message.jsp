@@ -1,4 +1,5 @@
-<%@ page contentType="text/html; charset=UTF-8" language="java"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <script>
 	<s:if test="hasActionMessages()">
 		$(function(){
@@ -9,7 +10,7 @@
 			})
 		})	
 	</s:if>
-		<s:if test="hasActionErrors()">
+	<s:if test="hasActionErrors()">
 		$(function(){
 			$.dialog({
 				title:"温馨提示",

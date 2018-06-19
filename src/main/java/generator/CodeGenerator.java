@@ -10,7 +10,7 @@ import java.io.StringWriter;
 import java.text.MessageFormat;
 
 
-import com.xmg.wms.domain.Dog;
+import com.xmg.pss.domain.Cat;
 
 public class CodeGenerator {
 	private static Configuration conf = new Configuration(Configuration.VERSION_2_3_0);
@@ -24,7 +24,7 @@ public class CodeGenerator {
 	}
 	public static void main(String[] args) throws Exception{
 		System.out.println("执行开始.......");
-		//codeGenerator(Dog.class);
+		//codeGenerator(Cat.class);
 		System.out.println("执行完毕。。。。。。");
 		
 	}

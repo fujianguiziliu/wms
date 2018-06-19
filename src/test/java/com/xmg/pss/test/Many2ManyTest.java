@@ -9,10 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.xmg.wms.domain.Student;
-import com.xmg.wms.domain.Teacher;
-import com.xmg.wms.mapper.StudentMapper;
-import com.xmg.wms.mapper.TeacherMapper;
+import com.xmg.pss.domain.Student;
+import com.xmg.pss.domain.Teacher;
+import com.xmg.pss.mapper.StudentMapper;
+import com.xmg.pss.mapper.TeacherMapper;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:applicationContext.xml")

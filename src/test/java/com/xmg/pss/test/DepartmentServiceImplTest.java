@@ -8,8 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.xmg.wms.domain.Department;
-import com.xmg.wms.service.IDepartmentService;
+import com.xmg.pss.domain.Department;
+import com.xmg.pss.service.IDepartmentService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:applicationContext.xml")

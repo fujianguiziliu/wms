@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html; charset=UTF-8" language="java" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html>
 <html>
@@ -15,28 +15,28 @@
     </style>
 </head>
 <body>
-<%@include file="/WEB-INF/views/common/common_message.jsp"%>
+<%@include file="/WEB-INF/views/common/common_message.jsp" %>
  <s:form id="searchForm" action="${objectName}" namespace="/" method="post">
     <div id="container">
         <div class="ui_content">
             <div class="ui_text_indent">
                 <div id="box_border">
                     <div id="box_top">搜索</div>
-                   <div id="box_center">
+     <%--               <div id="box_center">
                         姓名/邮箱
                         <s:textfield name="qo.keyword" class="ui_input_txt02"/>
                         所属部门
                         <s:select list="#depts" listKey="id" listValue="name" name="qo.deptId"
                                   headerKey="-1" headerValue="全部" class="ui_select01"/>
-                    </div>
+                    </div> --%>
                     <div id="box_bottom">
 
-                        <input type="button" value="查询" class="ui_input_btn01 btn_page"  data-page="1"/>
-
+<!--                         <input type="button" value="查询" class="ui_input_btn01 btn_page"  data-page="1"/>
+ -->
                         <input type="button" value="新增" class="ui_input_btn01 btn_input"
                                data-url="<s:url namespace="/" action="${objectName}_input"/>"/>
-                       <input type="button" value="批量删除" class="ui_input_btn01 btn_batchDelete"
-                               data-url="<s:url namespace="/" action="${objectName}_batchDelete"/>"/>
+                      <%--  <input type="button" value="批量删除" class="ui_input_btn01 btn_batchDelete"
+                               data-url="<s:url namespace="/" action="${objectName}_batchDelete"/>"/> --%>
                     </div>
                 </div>
             </div>

@@ -8,11 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.xmg.wms.domain.Department;
-import com.xmg.wms.domain.Employee;
-import com.xmg.wms.page.PageResult;
-import com.xmg.wms.query.EmployeeQueryObject;
-import com.xmg.wms.service.IEmployeeService;
+import com.xmg.pss.domain.Department;
+import com.xmg.pss.domain.Employee;
+import com.xmg.pss.page.PageResult;
+import com.xmg.pss.query.EmployeeQueryObject;
+import com.xmg.pss.service.IEmployeeService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:applicationContext.xml")

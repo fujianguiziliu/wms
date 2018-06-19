@@ -20,18 +20,6 @@
 		<property name="employeeService" ref="empService"/>
 	</bean>
 
-<bean id="dogAction" class="com.xmg.wms.web.action.DogAction" scope="prototype">
-	<property name="dogService" ref="dogService"/>
-</bean><bean id="catAction" class="com.xmg.wms.web.action.CatAction" scope="prototype">
+<bean id="catAction" class="com.xmg.pss.web.action.CatAction" scope="prototype">
 	<property name="catService" ref="catService"/>
-</bean><bean id="dogAction" class="com.xmg.wms.web.action.DogAction" scope="prototype">
-	<property name="dogService" ref="dogService"/>
-</bean><bean id="dogAction" class="com.xmg.wms.web.action.DogAction" scope="prototype">
-	<property name="dogService" ref="dogService"/>
-</bean><bean id="dogAction" class="com.xmg.wms.web.action.DogAction" scope="prototype">
-	<property name="dogService" ref="dogService"/>
-</bean><bean id="dogAction" class="com.xmg.wms.web.action.DogAction" scope="prototype">
-	<property name="dogService" ref="dogService"/>
-</bean><bean id="dogAction" class="com.xmg.wms.web.action.DogAction" scope="prototype">
-	<property name="dogService" ref="dogService"/>
 </bean></beans>

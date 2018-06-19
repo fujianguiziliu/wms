@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html; charset=UTF-8" language="java" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html>
 <html>
@@ -12,7 +12,7 @@
 </head>
 <body>
 <!-- =============================================== -->
-<%@include file="/WEB-INF/views/common/common_message.jsp"%>
+<%@include file="/WEB-INF/views/common/common_message.jsp" %>
 <s:form name="editForm" namespace="/" action="${objectName}_saveOrUpdate" method="post" id="editForm">
     <div id="container">
         <div id="nav_links">
