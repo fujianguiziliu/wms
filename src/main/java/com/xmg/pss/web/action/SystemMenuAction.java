@@ -1,29 +1,29 @@
 package com.xmg.pss.web.action;
 
-import com.xmg.pss.domain.Cat;
-import com.xmg.pss.query.CatQueryObject;
-import com.xmg.pss.service.ICatService;
+import com.xmg.pss.domain.SystemMenu;
+import com.xmg.pss.query.SystemMenuQueryObject;
+import com.xmg.pss.service.ISystemMenuService;
 import com.xmg.pss.util.RequiredPermission;
 
 import lombok.Getter;
 import lombok.Setter;
 
-public class CatAction extends BaseAction {
+public class SystemMenuAction extends BaseAction {
 	private static final long serialVersionUID = 1L;
 
 	@Setter
-	private ICatService catService;
+	private ISystemMenuService systemMenuService;
 
 	@Getter
-	private CatQueryObject qo=new CatQueryObject();
+	private SystemMenuQueryObject qo=new SystemMenuQueryObject();
 
 	@Getter
-	private Cat cat = new Cat();
+	private SystemMenu systemMenu = new SystemMenu();
 	
-	@RequiredPermission("小狗列表")
+	@RequiredPermission("系统菜单列表")
 	public String execute(){
 		try {
-			putContext("result", catService.pageQuery(qo));
+			putContext("result", systemMenuService.pageQuery(qo));
 		}catch (Exception e){
 			e.printStackTrace();
 			addActionError(e.getMessage());
@@ -31,11 +31,11 @@ public class CatAction extends BaseAction {
 		return LIST;
 	}
 
-	@RequiredPermission("小狗编辑")
+	@RequiredPermission("系统菜单编辑")
 	public String input() {
 		try {
-			if (cat.getId() != null) {
-                cat = catService.get(cat.getId());
+			if (systemMenu.getId() != null) {
+                systemMenu = systemMenuService.get(systemMenu.getId());
             }
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -44,14 +44,14 @@ public class CatAction extends BaseAction {
 		return INPUT;
 	}
 
-	@RequiredPermission("小狗保存/更新")
+	@RequiredPermission("系统菜单保存/更新")
 	public String saveOrUpdate() {
 		try {
-			if (cat.getId() == null) {
-                catService.save(cat);
+			if (systemMenu.getId() == null) {
+                systemMenuService.save(systemMenu);
 				addActionMessage("增加成功");
             } else {
-                catService.update(cat);
+                systemMenuService.update(systemMenu);
 				addActionMessage("更新成功");
             }
 		} catch (Exception e) {
@@ -61,11 +61,11 @@ public class CatAction extends BaseAction {
 		return SUCCESS;
 	}
 
-	@RequiredPermission("小狗删除")
+	@RequiredPermission("系统菜单删除")
 	public String delete()  throws  Exception {
 		try {
-			if (cat.getId() != null) {
-                catService.delete(cat.getId());
+			if (systemMenu.getId() != null) {
+                systemMenuService.delete(systemMenu.getId());
 				putMsg("删除成功");
             }
 		} catch (Exception e) {

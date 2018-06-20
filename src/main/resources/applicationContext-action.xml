@@ -20,6 +20,8 @@
 		<property name="employeeService" ref="empService"/>
 	</bean>
 
-<bean id="catAction" class="com.xmg.pss.web.action.CatAction" scope="prototype">
+<bean id="systemMenuAction" class="com.xmg.pss.web.action.SystemMenuAction" scope="prototype">
+	<property name="systemMenuService" ref="systemMenuService"/>
+</bean><bean id="catAction" class="com.xmg.pss.web.action.CatAction" scope="prototype">
 	<property name="catService" ref="catService"/>
 </bean></beans>

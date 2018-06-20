@@ -11,6 +11,7 @@ import java.text.MessageFormat;
 
 
 import com.xmg.pss.domain.Cat;
+import com.xmg.pss.domain.SystemMenu;
 
 public class CodeGenerator {
 	private static Configuration conf = new Configuration(Configuration.VERSION_2_3_0);

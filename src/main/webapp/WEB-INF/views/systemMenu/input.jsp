@@ -13,10 +13,10 @@
 <body>
 <!-- =============================================== -->
 <%@include file="/WEB-INF/views/common/common_message.jsp" %>
-<s:form name="editForm" namespace="/" action="cat_saveOrUpdate" method="post" id="editForm">
+<s:form name="editForm" namespace="/" action="systemMenu_saveOrUpdate" method="post" id="editForm">
     <div id="container">
         <div id="nav_links">
-            <span style="color: #1A5CC6;">小狗编辑</span>
+            <span style="color: #1A5CC6;">系统菜单编辑</span>
             <div id="page_close">
                 <a>
                     <img src="images/common/page_close.png" width="20" height="20" style="vertical-align: text-top;"/>
@@ -25,17 +25,35 @@
         </div>
         <div class="ui_content">
             <table cellspacing="0" cellpadding="0" width="100%" align="left" border="0">
-                <s:hidden name="cat.id"></s:hidden>
+                <s:hidden name="systemMenu.id"></s:hidden>
                             <tr>
-                                <td class="ui_text_rt" width="140">编码</td>
+                                <td class="ui_text_rt" width="140">children</td>
                                 <td class="ui_text_lt">
-                                    <s:textfield name="cat.sn" cssClass="ui_input_txt02" ></s:textfield>
+                                    <s:textfield name="systemMenu.children" cssClass="ui_input_txt02" ></s:textfield>
                                 </td>
                             </tr>
                             <tr>
-                                <td class="ui_text_rt" width="140">名称</td>
+                                <td class="ui_text_rt" width="140">上级菜单</td>
                                 <td class="ui_text_lt">
-                                    <s:textfield name="cat.name" cssClass="ui_input_txt02" ></s:textfield>
+                                    <s:textfield name="systemMenu.parent" cssClass="ui_input_txt02" ></s:textfield>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="ui_text_rt" width="140">菜单编码</td>
+                                <td class="ui_text_lt">
+                                    <s:textfield name="systemMenu.sn" cssClass="ui_input_txt02" ></s:textfield>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="ui_text_rt" width="140">URL</td>
+                                <td class="ui_text_lt">
+                                    <s:textfield name="systemMenu.url" cssClass="ui_input_txt02" ></s:textfield>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="ui_text_rt" width="140">菜单名称</td>
+                                <td class="ui_text_lt">
+                                    <s:textfield name="systemMenu.name" cssClass="ui_input_txt02" ></s:textfield>
                                 </td>
                             </tr>
                 <tr>
