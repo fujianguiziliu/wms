@@ -12,6 +12,7 @@ import com.xmg.pss.page.PageResult;
 import com.xmg.pss.query.QueryObject;
 import com.xmg.pss.service.IPermissionService;
 import com.xmg.pss.service.IRoleService;
+import com.xmg.pss.service.ISystemMenuService;
 import com.xmg.pss.util.RequiredPermission;
 
 public class RoleAction extends BaseAction {
@@ -23,6 +24,9 @@ public class RoleAction extends BaseAction {
 	private IRoleService roleService;
 	@Setter
 	private IPermissionService permissionService;
+	
+	@Setter
+	private ISystemMenuService systemMenuService;
 	/*@Setter
 	private String repassword;*/
 	@Getter
@@ -49,6 +53,7 @@ public class RoleAction extends BaseAction {
 		//查询出所有的权限
 		List<Permission> permissions = permissionService.list();
 		ActionContext.getContext().put("permissions", permissions);
+		putContext("menus", systemMenuService.list());
 		if (r.getId() != null) {
 			r = roleService.get(r.getId());
 		}

@@ -15,6 +15,7 @@
 	<bean id="roleAction" class="com.xmg.pss.web.action.RoleAction" scope="prototype">
 		<property name="roleService" ref="roleService"/>
 		<property name="permissionService" ref="permissionService"/>
+		<property name="systemMenuService" ref="systemMenuService"/>
 	</bean>
 	<bean id="loginAction" class="com.xmg.pss.web.action.LoginAction" scope="prototype">
 		<property name="employeeService" ref="empService"/>

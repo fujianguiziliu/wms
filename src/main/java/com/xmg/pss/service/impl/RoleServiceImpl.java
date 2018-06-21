@@ -7,6 +7,7 @@ import lombok.Setter;
 
 import com.xmg.pss.domain.Permission;
 import com.xmg.pss.domain.Role;
+import com.xmg.pss.domain.SystemMenu;
 import com.xmg.pss.mapper.RoleMapper;
 import com.xmg.pss.page.PageResult;
 import com.xmg.pss.query.QueryObject;
@@ -23,13 +24,18 @@ public class RoleServiceImpl implements IRoleService {
 		//把角色对应的权限保存到中间表中role_permission
 		List<Permission> permissions = r.getPermissions();
 		for (Permission permission : permissions) {
-			roleMapper.updateRelation(r.getId(), permission.getId());
+			roleMapper.updatePermissionRelation(r.getId(), permission.getId());
+		}
+		List<SystemMenu> menus = r.getMenus();
+		for (SystemMenu menu : menus) {
+			roleMapper.updateMenuRelation(r.getId(), menu.getId());
 		}
 	}
 
 	@Override
 	public void delete(Long id) {
-		roleMapper.deleteRelation(id);
+		roleMapper.deletePermissionRelation(id);
+		roleMapper.deleteMenuRelation(id);
 		roleMapper.delete(id);
 	}
 
@@ -38,12 +44,16 @@ public class RoleServiceImpl implements IRoleService {
 		roleMapper.update(r);
 		//需要将角色对应的最新的权限更新到中间表中
 		//将当前的角色的所有的权限删除,然后再将本次操作中的权限保存进去
-		roleMapper.deleteRelation(r.getId());
-
+		roleMapper.deletePermissionRelation(r.getId());
+		roleMapper.deleteMenuRelation(r.getId());
 		//把角色对应的权限保存到中间表中role_permission
 		List<Permission> permissions = r.getPermissions();
 		for (Permission permission : permissions) {
-			roleMapper.updateRelation(r.getId(), permission.getId());
+			roleMapper.updatePermissionRelation(r.getId(), permission.getId());
+		}
+		List<SystemMenu> menus = r.getMenus();
+		for (SystemMenu menu : menus) {
+			roleMapper.updateMenuRelation(r.getId(), menu.getId());
 		}
 	}
 

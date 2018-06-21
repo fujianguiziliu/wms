@@ -78,6 +78,37 @@
 						</td>
 					</tr>
 					<tr>
+						<td class="ui_text_rt" width="140">菜单</td>
+						<td class="ui_text_lt">
+							<table>
+								<tr>
+									<td>
+										<s:select list="#menus"  listKey="id" listValue="name"
+											multiple="true" cssClass="ui_multiselect01 all_menu" />
+									</td>
+									<td align="center">
+										<input type="button" id="mselect" value="--->"
+											class="left2right" />
+										<br />
+										<input type="button" id="mselectAll" value="==>"
+											class="left2right" />
+										<br />
+										<input type="button" id="mdeselect" value="<---"
+											class="left2right" />
+										<br />
+										<input type="button" id="mdeselectAll" value="<=="
+											class="left2right" />
+									</td>
+									<td>
+										<s:select list="r.menus" name="r.menus.id"
+											listKey="id" listValue="name" multiple="true"
+											cssClass="ui_multiselect01 selected_menu" />
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr>
 						<td>&nbsp;</td>
 						<td class="ui_text_lt">
 							&nbsp;

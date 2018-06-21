@@ -27,12 +27,23 @@ public interface RoleMapper {
 	 * @param id  角色主键
 	 * @param id2  权限的主键
 	 */
-	void updateRelation(@Param("rid") Long id, @Param("pid") Long id2);
+	void updatePermissionRelation(@Param("rid") Long rid, @Param("pid") Long id2);
 
+	/**
+	 * 维护角色和权限的关系
+	 * @param rid  角色主键
+	 * @param mid  菜单的主键
+	 */
+	void updateMenuRelation(@Param("rId") Long rId, @Param("mId") Long mId);
 	/**
 	 * 根据角色将中间表中的数据删除
 	 * @param id
 	 */
-	void deleteRelation(Long id);
+	void deletePermissionRelation(Long id);
+	/**
+	 * 根据角色将中间表中的数据删除
+	 * @param rid
+	 */
+	void deleteMenuRelation(Long id);
 
 }

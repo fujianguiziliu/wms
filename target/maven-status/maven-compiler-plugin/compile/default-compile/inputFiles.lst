@@ -5,6 +5,7 @@ E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\pss\service\ICatService.java
 E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\pss\domain\BasicDomain.java
 E:\BigOpenSource\javaApps\wms\src\main\java\generator\CodeGenerator.java
 E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\pss\mapper\PermissionMapper.java
+E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\pss\vo\SystemMenuVO.java
 E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\pss\service\impl\PermissionServiceImpl.java
 E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\pss\domain\Department.java
 E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\pss\service\impl\EmployeeServiceImpl.java
@@ -34,8 +35,8 @@ E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\pss\web\interceptor\Secutity
 E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\pss\mapper\EmployeeMapper.java
 E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\pss\web\action\LoginAction.java
 E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\pss\query\DogQueryObject.java
-E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\pss\domain\SystemMenu.java
 E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\pss\web\action\SystemMenuAction.java
+E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\pss\domain\SystemMenu.java
 E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\pss\domain\Cat.java
 E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\pss\domain\Employee.java
 E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\pss\domain\Role.java

@@ -35,11 +35,8 @@
   </select>
   <sql id="conditionSql">
   	<where>
-  	<!-- <if test="parentId>0">
-  		select * from systemMenu where parent_id =#{parentId}
-  	</if> -->
   		<choose>
-  			<when test="parentId">
+  			<when test="parentId>0">
   				and parent_id =#{parentId} 			
   			</when>
   			<otherwise>
@@ -57,4 +54,11 @@
   	<include refid="conditionSql"/>
   	limit #{beginIndex},#{pageSize}
   </select>
+  
+  <select id="selectByRoleId" resultMap="BaseResultMap">
+		select m.* from systemMenu
+		m left JOIN role_menu rm
+		on m.id=rm.menu_id
+		where rm.role_id=#{menuId}
+	</select>
 </mapper>

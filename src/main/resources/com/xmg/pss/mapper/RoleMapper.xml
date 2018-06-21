@@ -9,6 +9,8 @@
 		<result property="sn" column="sn" />
 		<collection property="permissions" ofType="Permission"
 			select="com.xmg.pss.mapper.PermissionMapper.selectByRoleId" column="id"></collection>
+			<collection property="menus" ofType="systemMenu"
+			select="com.xmg.pss.mapper.SystemMenuMapper.selectByRoleId" column="id"></collection>
 	</resultMap>
 
 	<insert id="save" useGeneratedKeys="true" keyColumn="id"
@@ -21,9 +23,12 @@
 		delete from role where id=#{id}
 	</delete>
 	<update id="update">
-		update role set name = #{name},sn=#{sn} where id =
-		#{id}
+		update role set name = #{name},sn=#{sn} where id =#{id}
 	</update>
+	
+	<insert id="updateMenuRelation">
+		insert into role_menu(role_id,menu_id) values(#{rId},#{mId})
+	</insert>
 	<select id="get" resultMap="base_mapping">
 		select * from role where id = #{id}
 	</select>
@@ -40,14 +45,17 @@
 		#{beginIndex},#{pageSize}
 	</select>
 
-	<insert id="updateRelation">
+	<insert id="updatePermissionRelation">
 		insert into role_permission values(#{rid},#{pid})
 	</insert>
 
-	<delete id="deleteRelation">
+	<delete id="deletePermissionRelation">
 		delete from role_permission where role_id=#{rid}
 	</delete>
 
+	<delete id="deleteMenuRelation">
+		delete from role_menu where role_id=#{id}
+	</delete>
 	<select id="getByEmpId" resultMap="base_mapping">
 		select r.* from role r inner
 		join employee_role er

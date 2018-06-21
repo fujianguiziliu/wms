@@ -17,6 +17,7 @@
 <body>
 <%@include file="/WEB-INF/views/common/common_message.jsp" %>
  <s:form id="searchForm" action="systemMenu" namespace="/" method="post">
+    <s:hidden name="qo.parentId"/>
     <div id="container">
         <div class="ui_content">
             <div class="ui_text_indent">
@@ -33,14 +34,25 @@
 
 <!--                         <input type="button" value="查询" class="ui_input_btn01 btn_page"  data-page="1"/>
  -->
+ 						<s:url namespace="/" action="systemMenu_input" var="inputUrl">
+                                    <s:param name="qo.parentId" value="qo.parentId"></s:param>
+                                </s:url>
                         <input type="button" value="新增" class="ui_input_btn01 btn_input"
-                               data-url="<s:url namespace="/" action="systemMenu_input"/>"/>
+                               data-url="<s:property value="#inputUrl"/>"/>
                       <%--  <input type="button" value="批量删除" class="ui_input_btn01 btn_batchDelete"
                                data-url="<s:url namespace="/" action="systemMenu_batchDelete"/>"/> --%>
                     </div>
                 </div>
             </div>
         </div>
+        <s:a action="systemMenu">根目录</s:a>
+        <s:iterator value="#parentList">
+        >
+        <s:a action="systemMenu">
+        	<s:param name="qo.parentId" value="id"/>
+        	<s:property value="name"/></s:a>
+        </s:iterator>
+       
         <div class="ui_content">
             <div class="ui_tb">
                 <table class="table" cellspacing="0" cellpadding="0" width="100%" align="center" border="0">
@@ -51,9 +63,9 @@
                             <%--h?keys: h是一个map结构的数据,代表获取到h里面的key的集合--%>
                                 <%--遍历keys集合,把每次遍历的数据赋值给变量 key--%>
                                         <%--children:从map里面去去key对应的数据信息:中文名称--%>
-                                    <th>菜单名称</th>
-                                     <th>菜单编码</th>
-                                  
+                                   
+                                    <th>菜单编码</th>
+                                   <th>菜单名称</th>
                                    <!--  <th>children</th> -->
                                         <%--上级菜单:从map里面去去key对应的数据信息:中文名称--%>
                                     <th>上级菜单</th>
@@ -69,8 +81,7 @@
                     <s:iterator value="#result.listData">
                         <tr>
                             <td><input type="checkbox" name="IDCheck" class="acb" data-oid="<s:property value="id"/>"/></td>
-                            <td><s:property value="id"/></td>
-                               <%--  <td><s:property value="children"/> </td> --%>
+                            	<td><s:property value="id"/></td>                             
                                 <td><s:property value="sn"/> </td>
                                 <td><s:property value="name"/> </td>
                                 <td><s:property value="parent.name"/> </td>
@@ -78,16 +89,19 @@
                             <td>
                                 <s:a namespace="" action="systemMenu_input">
                                     <s:param name="systemMenu.id" value="id"></s:param>
-                                    编辑</s:a>
+                                    <s:param name="qo.parentId" value="qo.parentId"></s:param>
+                                	    编辑
+                                	    </s:a>
                                 <s:url namespace="" action="systemMenu_delete" var="deleteUrl">
                                     <s:param name="systemMenu.id" value="id"></s:param>
                                 </s:url>
                                 <a href="javascript:;" class="btn_delete" data-url="<s:property value="#deleteUrl"/>">
-                                    删除
+                                	    删除
                                 </a>
                                   <s:a namespace="" action="systemMenu">
                                     <s:param name="qo.parentId" value="id"></s:param>
-                                    查看子菜单</s:a>
+                                  	  查看子菜单
+                                  	  </s:a>
                             </td>
                         </tr>
                     </s:iterator>

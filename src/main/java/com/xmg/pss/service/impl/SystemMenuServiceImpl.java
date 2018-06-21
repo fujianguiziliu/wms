@@ -1,5 +1,6 @@
 package com.xmg.pss.service.impl;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
@@ -12,6 +13,8 @@ import com.xmg.pss.mapper.SystemMenuMapper;
 import com.xmg.pss.page.PageResult;
 import com.xmg.pss.query.SystemMenuQueryObject;
 import com.xmg.pss.service.ISystemMenuService;
+import com.xmg.pss.vo.SystemMenuVO;
+
 import lombok.Setter;
 public class SystemMenuServiceImpl implements ISystemMenuService {
 	@Setter
@@ -46,5 +49,21 @@ public class SystemMenuServiceImpl implements ISystemMenuService {
 		List<SystemMenu> result = systemMenuMapper.pageQuery(qo);
 		PageResult pageResult = new PageResult(result,count.intValue(),qo.getCurrentPage(),qo.getPageSize());
 		return pageResult;
+	}
+
+	@Override
+	public List<SystemMenuVO> queryParentListById(Long parentId) {
+		List<SystemMenuVO> parentList=new ArrayList<>();
+		//菜单对象
+		SystemMenu current = systemMenuMapper.get(parentId);
+		while (current!=null) {
+		SystemMenuVO vo=new SystemMenuVO();
+		vo.setId(current.getId());
+		vo.setName(current.getName());
+		parentList.add(vo);
+		 current = current.getParent();
+		}
+		Collections.reverse(parentList);
+		return parentList;
 	}
 }

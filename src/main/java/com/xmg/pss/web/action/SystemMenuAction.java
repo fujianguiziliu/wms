@@ -1,9 +1,13 @@
 package com.xmg.pss.web.action;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.xmg.pss.domain.SystemMenu;
 import com.xmg.pss.query.SystemMenuQueryObject;
 import com.xmg.pss.service.ISystemMenuService;
 import com.xmg.pss.util.RequiredPermission;
+import com.xmg.pss.vo.SystemMenuVO;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -20,10 +24,14 @@ public class SystemMenuAction extends BaseAction {
 	@Getter
 	private SystemMenu systemMenu = new SystemMenu();
 	
+	@Setter
+	private String parentName;
 	@RequiredPermission("系统菜单列表")
 	public String execute(){
 		try {
 			putContext("result", systemMenuService.pageQuery(qo));
+			List<SystemMenuVO> parentList=systemMenuService.queryParentListById(qo.getParentId());
+			putContext("parentList", parentList);
 		}catch (Exception e){
 			e.printStackTrace();
 			addActionError(e.getMessage());
@@ -32,7 +40,16 @@ public class SystemMenuAction extends BaseAction {
 	}
 
 	@RequiredPermission("系统菜单编辑")
-	public String input() {
+	public String input() throws  Exception{
+		//根据qo.parentId查找父级菜单
+		if (qo.getParentId() != null && qo.getParentId()>0) {
+			SystemMenu parent = systemMenuService.get(qo.getParentId());
+			putContext("parentName", parent.getName());
+			//systemMenu.setParent(parent);
+		}else {
+			putContext("parentName", "根目录");
+			//systemMenu.setParent(null);
+		}
 		try {
 			if (systemMenu.getId() != null) {
                 systemMenu = systemMenuService.get(systemMenu.getId());
@@ -46,6 +63,14 @@ public class SystemMenuAction extends BaseAction {
 
 	@RequiredPermission("系统菜单保存/更新")
 	public String saveOrUpdate() {
+		if (qo.getParentId() != null && qo.getParentId()>0) {
+			SystemMenu parent = systemMenuService.get(qo.getParentId());
+			//putContext("parentName", parent.getName());
+			systemMenu.setParent(parent);
+		}else {
+			//putContext("parentName", "根目录");
+			systemMenu.setParent(null);
+		}
 		try {
 			if (systemMenu.getId() == null) {
                 systemMenuService.save(systemMenu);

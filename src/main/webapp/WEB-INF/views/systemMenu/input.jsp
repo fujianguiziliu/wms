@@ -26,16 +26,17 @@
         <div class="ui_content">
             <table cellspacing="0" cellpadding="0" width="100%" align="left" border="0">
                 <s:hidden name="systemMenu.id"></s:hidden>
-                            <tr>
+                 <s:hidden name="qo.parentId" ></s:hidden>
+                            <%-- <tr>
                                 <td class="ui_text_rt" width="140">children</td>
                                 <td class="ui_text_lt">
-                                    <s:textfield name="systemMenu.children" cssClass="ui_input_txt02" ></s:textfield>
+                                    <s:textfield name="parentName" cssClass="ui_input_txt02" ></s:textfield>
                                 </td>
-                            </tr>
+                            </tr> --%>
                             <tr>
                                 <td class="ui_text_rt" width="140">上级菜单</td>
-                                <td class="ui_text_lt">
-                                    <s:textfield name="systemMenu.parent" cssClass="ui_input_txt02" ></s:textfield>
+                                <td class="ui_text_lt">  
+                                	<s:textfield name="parentName" cssClass="ui_input_txt02" readonly="true" style="background:pink"></s:textfield>                           
                                 </td>
                             </tr>
                             <tr>
@@ -45,15 +46,16 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td class="ui_text_rt" width="140">URL</td>
-                                <td class="ui_text_lt">
-                                    <s:textfield name="systemMenu.url" cssClass="ui_input_txt02" ></s:textfield>
-                                </td>
-                            </tr>
-                            <tr>
                                 <td class="ui_text_rt" width="140">菜单名称</td>
                                 <td class="ui_text_lt">
                                     <s:textfield name="systemMenu.name" cssClass="ui_input_txt02" ></s:textfield>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="ui_text_rt" width="140">URL</td>
+                                <td class="ui_text_lt">
+                                    <s:textfield name="systemMenu.url" cssClass="ui_input_txt02" ></s:textfield>
                                 </td>
                             </tr>
                 <tr>
