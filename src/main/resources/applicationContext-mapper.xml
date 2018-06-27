@@ -39,7 +39,4 @@
     <property name="mapperInterface" value="com.xmg.pss.mapper.SupplierMapper"/>
     <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
 </bean>
-<bean id="productMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-    <property name="mapperInterface" value="com.xmg.pss.mapper.ProductMapper"/>
-    <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
-</bean></beans>
+</beans>

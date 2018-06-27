@@ -30,7 +30,4 @@
 </bean><bean id="supplierAction" class="com.xmg.pss.web.action.SupplierAction" scope="prototype">
 	<property name="supplierService" ref="supplierService"/>
 </bean>
-<bean id="productAction" class="com.xmg.pss.web.action.ProductAction" scope="prototype">
-	<property name="productService" ref="productService"/>
-	<property name="brandService" ref="brandService"/>
-</bean></beans>
+</beans>

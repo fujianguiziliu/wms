@@ -2,18 +2,14 @@ package com.xmg.pss.domain;
 
 import java.math.BigDecimal;
 
-import org.apache.commons.lang3.StringUtils;
-
 import generator.ObjectProp;
 import lombok.Getter;
 import lombok.Setter;
 
-@Setter
 @Getter
-@ObjectProp("商品管理")
+@Setter
+@ObjectProp("货品管理")
 public class Product extends BasicDomain{
-
-	private static final long serialVersionUID = 1L;
 
 	@ObjectProp("货品名称")
 	private String name;
@@ -28,7 +24,7 @@ public class Product extends BasicDomain{
 	private BigDecimal salePrice;
 	
 	@ObjectProp("货品图片")
-	private String imagePath;
+	private String imagePath; 
 	
 	@ObjectProp("备注")
 	private String intro;
@@ -37,13 +33,5 @@ public class Product extends BasicDomain{
 	private Brand brand;
 	
 	
-	public String getSmallImagePath(){
-		if (StringUtils.isNotEmpty(getImagePath())) {
-			int index=imagePath.lastIndexOf(".");
-			return imagePath.substring(0,index) +"_small" + imagePath.substring(index);
-		}
-		return "";
-		
-	}
 	
 }
