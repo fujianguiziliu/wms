@@ -25,4 +25,12 @@
 	<property name="systemMenuService" ref="systemMenuService"/>
 </bean><bean id="catAction" class="com.xmg.pss.web.action.CatAction" scope="prototype">
 	<property name="catService" ref="catService"/>
+</bean><bean id="brandAction" class="com.xmg.pss.web.action.BrandAction" scope="prototype">
+	<property name="brandService" ref="brandService"/>
+</bean><bean id="supplierAction" class="com.xmg.pss.web.action.SupplierAction" scope="prototype">
+	<property name="supplierService" ref="supplierService"/>
+</bean>
+<bean id="productAction" class="com.xmg.pss.web.action.ProductAction" scope="prototype">
+	<property name="productService" ref="productService"/>
+	<property name="brandService" ref="brandService"/>
 </bean></beans>

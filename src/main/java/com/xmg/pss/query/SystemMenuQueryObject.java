@@ -7,4 +7,6 @@ import lombok.Setter;
 public class SystemMenuQueryObject extends QueryObject {
 
 	private Long parentId=-1L;
+	
+	private String parentSn;
 }

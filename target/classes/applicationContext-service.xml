@@ -15,8 +15,18 @@
 	<bean id="roleService" class="com.xmg.pss.service.impl.RoleServiceImpl">
 		<property name="roleMapper" ref="roleMapper"/>
 	</bean>
-<bean id="systemMenuService" class="com.xmg.pss.service.impl.SystemMenuServiceImpl">
+	<bean id="systemMenuService" class="com.xmg.pss.service.impl.SystemMenuServiceImpl">
 	<property name="systemMenuMapper" ref="systemMenuMapper"/>
-</bean><bean id="catService" class="com.xmg.pss.service.impl.CatServiceImpl">
+	</bean>
+	<bean id="catService" class="com.xmg.pss.service.impl.CatServiceImpl">
 	<property name="catMapper" ref="catMapper"/>
+	</bean>
+	<bean id="brandService" class="com.xmg.pss.service.impl.BrandServiceImpl">
+	<property name="brandMapper" ref="brandMapper"/>
+	</bean>
+	<bean id="supplierService" class="com.xmg.pss.service.impl.SupplierServiceImpl">
+	<property name="supplierMapper" ref="supplierMapper"/>
+	</bean>
+<bean id="productService" class="com.xmg.pss.service.impl.ProductServiceImpl">
+	<property name="productMapper" ref="productMapper"/>
 </bean></beans>

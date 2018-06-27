@@ -32,4 +32,14 @@
 </bean><bean id="catMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
     <property name="mapperInterface" value="com.xmg.pss.mapper.CatMapper"/>
     <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+</bean><bean id="brandMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+    <property name="mapperInterface" value="com.xmg.pss.mapper.BrandMapper"/>
+    <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+</bean><bean id="supplierMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+    <property name="mapperInterface" value="com.xmg.pss.mapper.SupplierMapper"/>
+    <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+</bean>
+<bean id="productMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+    <property name="mapperInterface" value="com.xmg.pss.mapper.ProductMapper"/>
+    <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
 </bean></beans>

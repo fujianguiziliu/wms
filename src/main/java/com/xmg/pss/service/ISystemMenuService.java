@@ -13,4 +13,5 @@ public interface ISystemMenuService {
 	void update(SystemMenu entity);
 	PageResult pageQuery(SystemMenuQueryObject qo);
 	List<SystemMenuVO> queryParentListById(Long parentId);
+	List<SystemMenu> queryMenusByParentSn(String parentSn);
 }

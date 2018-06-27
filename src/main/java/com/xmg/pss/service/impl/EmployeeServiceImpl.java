@@ -16,6 +16,7 @@ import com.xmg.pss.page.PageResult;
 import com.xmg.pss.query.QueryObject;
 import com.xmg.pss.service.IEmployeeService;
 import com.xmg.pss.util.MD5;
+import com.xmg.pss.util.UserContext;
 
 public class EmployeeServiceImpl implements IEmployeeService {
 
@@ -81,7 +82,8 @@ public class EmployeeServiceImpl implements IEmployeeService {
 			throw new RuntimeException("用户名或者密码错误!");
 		}
 		//登陆成功,将用户信息添加到session中
-		ActionContext.getContext().getSession().put("EMPLOYEE_IN_SESSION", e);
+		//ActionContext.getContext().getSession().put("EMPLOYEE_IN_SESSION", e);
+		UserContext.setCurrentUser(e);
 		Set<String> expressionSet = new HashSet<>();
 		List<Role> roles = e.getRoles();
 		for (Role role : roles) {
@@ -92,8 +94,9 @@ public class EmployeeServiceImpl implements IEmployeeService {
 			}
 		}
 		//获取到用户所有的权限,将其添加到session中:为权限的校验做准备
-		ActionContext.getContext().getSession()
-				.put("EXPRESSIONSET_IN_SESSION", expressionSet);
+		/*ActionContext.getContext().getSession()
+				.put("EXPRESSIONSET_IN_SESSION", expressionSet);*/
+		UserContext.setCurrentPermissionSet(expressionSet);
 		return e;
 	}
 

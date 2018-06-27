@@ -8,11 +8,13 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.xmg.pss.domain.Employee;
 import com.xmg.pss.domain.SystemMenu;
 import com.xmg.pss.mapper.SystemMenuMapper;
 import com.xmg.pss.page.PageResult;
 import com.xmg.pss.query.SystemMenuQueryObject;
 import com.xmg.pss.service.ISystemMenuService;
+import com.xmg.pss.util.UserContext;
 import com.xmg.pss.vo.SystemMenuVO;
 
 import lombok.Setter;
@@ -65,5 +67,18 @@ public class SystemMenuServiceImpl implements ISystemMenuService {
 		}
 		Collections.reverse(parentList);
 		return parentList;
+	}
+
+	@Override
+	public List<SystemMenu> queryMenusByParentSn(String parentSn) {
+		//需要很具用户当前的权限进行菜单的过滤
+		//1.获取到当前的登录的用户信息
+		Employee employee = UserContext.getCurrentUser();
+		if (employee.getAdmin()) {
+			return systemMenuMapper.queryMenusByParentSn(parentSn);
+		}else {
+			return systemMenuMapper.queryMenusByParentSnAndEmpId(parentSn,employee.getId());
+		}
+				
 	}
 }

@@ -10,7 +10,10 @@ import java.io.StringWriter;
 import java.text.MessageFormat;
 
 
+import com.xmg.pss.domain.Brand;
 import com.xmg.pss.domain.Cat;
+import com.xmg.pss.domain.Product;
+import com.xmg.pss.domain.Supplier;
 import com.xmg.pss.domain.SystemMenu;
 
 public class CodeGenerator {
@@ -25,7 +28,7 @@ public class CodeGenerator {
 	}
 	public static void main(String[] args) throws Exception{
 		System.out.println("执行开始.......");
-		//codeGenerator(Cat.class);
+	//	codeGenerator(Product.class);
 		System.out.println("执行完毕。。。。。。");
 		
 	}

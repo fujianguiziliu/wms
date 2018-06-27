@@ -7,6 +7,7 @@ import com.opensymphony.xwork2.ActionInvocation;
 import com.opensymphony.xwork2.interceptor.AbstractInterceptor;
 import com.xmg.pss.domain.Employee;
 import com.xmg.pss.util.RequiredPermission;
+import com.xmg.pss.util.UserContext;
 
 @SuppressWarnings("unchecked")
 public class SecutityInterceptor extends AbstractInterceptor {
@@ -17,15 +18,17 @@ public class SecutityInterceptor extends AbstractInterceptor {
 	public String intercept(ActionInvocation invocation) throws Exception {
 
 		//如果用户是超级管理员,不要校验
-		Employee e = (Employee) invocation.getInvocationContext().getSession()
-				.get("EMPLOYEE_IN_SESSION");
+		/*Employee e = (Employee) invocation.getInvocationContext().getSession()
+				.get("EMPLOYEE_IN_SESSION");*/
+		Employee e =UserContext.getCurrentUser();
 		if (e.getAdmin()) {
 			return invocation.invoke();
 		}
 		//获取到登陆用户所有权限:session中, expressionSet
-		Set<String> expressionSet = (Set<String>) invocation
+		/*Set<String> expressionSet = (Set<String>) invocation
 				.getInvocationContext().getSession()
-				.get("EXPRESSIONSET_IN_SESSION");
+				.get("EXPRESSIONSET_IN_SESSION");*/
+		Set<String> expressionSet =UserContext.getCurrentPermissionSet();
 		//获取用户访问的是哪一个action中的哪一个method
 		//actionName+ : + methodName
 		Object action = invocation.getProxy().getAction();

@@ -73,6 +73,11 @@ var setting = {	};
 						enable: true
 					}
 				},
+				async:{
+					enable:true,
+					url:"/systemMenu_queryMenusByParentSn.action",
+					autoParam:["sn=qo.parentSn"]
+				},
 			callback:{
 				onClick:function(event,treeId,treeNode){
 //					console.log(event); 
@@ -110,7 +115,9 @@ var setting = {	};
 				
 			];
 */
-			zNode1=[
+
+/*
+ 	zNode1=[
 			        {id:1, pId:0, name:"业务模块", open:true},
 				    {id:11, pId:1, name:"货品"},
 				    {id:12, pId:1, name:"仓库"},
@@ -131,14 +138,27 @@ var setting = {	};
 { id:31, pId:3, name:"即时库存表"},
 { id:32, pId:3, name:"销售报表"},
 { id:33, pId:3, name:"订货报表"}, 
+ 
+ */
+			zNode1=[
+ {id:1, pId:0, name:"业务模块", isParent:true,open:false,sn:"business"}
+				    
 			        
+			        ];
+			zNode2=[
+{ id:2, pId:0, name:"系统模块", isParent:true,open:false,sn:"system"}
+
+			        ];
+			zNode3=[
+{ id:3, pId:0, name:"报表模块", isParent:true,open:false,sn:"chart"}
+
 			        ]
-			zNodes={
-				"business":zNode1,
-				"systemManage":zNode2,
-				"charts":zNode3
+zNodes={
+			"business":zNode1,
+			"systemManage":zNode2,
+			"charts":zNode3			
 					
-			}			
+}			
 			
 			/*$(document).ready(function(){
 				$.fn.zTree.init($("#dleft_tab1"), setting, zNode1);

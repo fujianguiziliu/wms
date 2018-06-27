@@ -1,8 +1,12 @@
 package com.xmg.pss.web.action;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
+import org.apache.struts2.ServletActionContext;
+
+import com.alibaba.fastjson.JSON;
 import com.xmg.pss.domain.SystemMenu;
 import com.xmg.pss.query.SystemMenuQueryObject;
 import com.xmg.pss.service.ISystemMenuService;
@@ -98,6 +102,19 @@ public class SystemMenuAction extends BaseAction {
 			putMsg(e.getMessage());
 		}
 		return NONE;
+	}
+	
+	public String queryMenusByParentSn() throws Exception{
+		List<SystemMenu> menus = systemMenuService.queryMenusByParentSn(qo.getParentSn());
+		
+		List<Object> jsonList =new ArrayList<>();
+		for(SystemMenu menu : menus){
+			jsonList.add(menu.toJson());
+		}
+		
+		putJson(jsonList);
+		return NONE;
+		
 	}
 
 }
