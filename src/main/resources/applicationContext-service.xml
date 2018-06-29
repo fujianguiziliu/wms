@@ -27,4 +27,6 @@
 	<bean id="supplierService" class="com.xmg.pss.service.impl.SupplierServiceImpl">
 	<property name="supplierMapper" ref="supplierMapper"/>
 	</bean>
-</beans>
+<bean id="productService" class="com.xmg.pss.service.impl.ProductServiceImpl">
+	<property name="productMapper" ref="productMapper"/>
+</bean></beans>

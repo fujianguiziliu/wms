@@ -1,4 +1,5 @@
 E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\pss\query\SystemMenuQueryObject.java
+E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\pss\mapper\ProductMapper.java
 E:\BigOpenSource\javaApps\wms\src\main\java\generator\XmlUtil.java
 E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\pss\web\action\EmployeeAction.java
 E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\pss\service\ICatService.java
@@ -8,8 +9,8 @@ E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\pss\domain\Supplier.java
 E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\pss\vo\SystemMenuVO.java
 E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\pss\mapper\PermissionMapper.java
 E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\pss\service\impl\PermissionServiceImpl.java
-E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\pss\query\BrandQueryObject.java
 E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\pss\domain\Department.java
+E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\pss\query\BrandQueryObject.java
 E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\pss\service\impl\EmployeeServiceImpl.java
 E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\pss\domain\Teacher.java
 E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\pss\mapper\BrandMapper.java
@@ -19,8 +20,9 @@ E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\pss\service\ISystemMenuServi
 E:\BigOpenSource\javaApps\wms\src\main\java\com\opensymphony\xwork2\interceptor\ParametersInterceptor.java
 E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\pss\query\SupplierQueryObject.java
 E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\pss\query\QueryObject.java
-E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\pss\service\IEmployeeService.java
+E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\pss\query\ProductQueryObject.java
 E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\pss\web\action\CatAction.java
+E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\pss\service\IEmployeeService.java
 E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\pss\service\IDepartmentService.java
 E:\BigOpenSource\javaApps\wms\src\main\java\generator\ClassInfo.java
 E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\pss\mapper\BasicMapper.java
@@ -43,10 +45,12 @@ E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\pss\mapper\DepartmentMapper.
 E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\pss\web\interceptor\SecutityInterceptor.java
 E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\pss\mapper\EmployeeMapper.java
 E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\pss\web\action\LoginAction.java
-E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\pss\query\DogQueryObject.java
+E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\pss\service\IProductService.java
 E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\pss\domain\Brand.java
+E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\pss\query\DogQueryObject.java
 E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\pss\domain\SystemMenu.java
 E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\pss\web\action\SystemMenuAction.java
+E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\pss\web\action\ProductAction.java
 E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\pss\domain\Cat.java
 E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\pss\domain\Employee.java
 E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\pss\service\ISupplierService.java
@@ -61,6 +65,7 @@ E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\pss\domain\Product.java
 E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\pss\service\impl\SupplierServiceImpl.java
 E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\pss\mapper\SystemMenuMapper.java
 E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\pss\query\CatQueryObject.java
+E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\pss\service\impl\ProductServiceImpl.java
 E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\pss\web\action\RoleAction.java
 E:\BigOpenSource\javaApps\wms\src\main\java\com\xmg\pss\domain\Student.java
 E:\BigOpenSource\javaApps\wms\src\main\java\generator\ObjectProp.java

@@ -6,10 +6,18 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link href="style/basic_layout.css" rel="stylesheet" type="text/css">
     <link href="style/common_style.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="/js/fancyBox/jquery.fancybox.css"/>
     <script type="text/javascript" src="/js/jquery/jquery.js"></script>
+    <script type="text/javascript" src="/js/fancyBox/jquery.fancybox.pack.js"></script>   
     <script type="text/javascript" src="/js/artDialog/jquery.artDialog.js?skin=blue"></script>
     <script type="text/javascript" src="/js/commonAll.js"></script>
+    
     <title>PSS-货品管理管理</title>
+    <script>
+    	$(function(){
+    		$('.fancybox').fancybox();
+    	})
+    </script>
     <style>
         .alt td{ background:black !important;}
     </style>
@@ -46,38 +54,45 @@
                 <table class="table" cellspacing="0" cellpadding="0" width="100%" align="center" border="0">
                     <tr>
                         <th width="30"><input type="checkbox" id="all" /></th>
-                        <th>编号</th>
+                       
                        <%-- 定义一个变量,接收数据模型里面的表达式--%>
                             <%--h?keys: h是一个map结构的数据,代表获取到h里面的key的集合--%>
                                 <%--遍历keys集合,把每次遍历的数据赋值给变量 key--%>
                                         <%--成本价格:从map里面去去key对应的数据信息:中文名称--%>
-                                    <th>成本价格</th>
                                         <%--货品编码:从map里面去去key对应的数据信息:中文名称--%>
-                                    <th>货品编码</th>
-                                        <%--货品图片:从map里面去去key对应的数据信息:中文名称--%>
                                     <th>货品图片</th>
+                                        <%--货品图片:从map里面去去key对应的数据信息:中文名称--%>
                                         <%--货品名称:从map里面去去key对应的数据信息:中文名称--%>
-                                    <th>货品名称</th>
+                                   <th>货品名称</th>
+                                    
+                                    <th>货品编码</th>
                                         <%--货品品牌:从map里面去去key对应的数据信息:中文名称--%>
                                     <th>货品品牌</th>
+                                    
+                                     <th>成本价格</th>
                                         <%--销售价格:从map里面去去key对应的数据信息:中文名称--%>
                                     <th>销售价格</th>
                                         <%--备注:从map里面去去key对应的数据信息:中文名称--%>
-                                    <th>备注</th>
                         <th>操作</th>
                     </tr>
                     <tbody>
                     <s:iterator value="#result.listData">
                         <tr>
                             <td><input type="checkbox" name="IDCheck" class="acb" data-oid="<s:property value="id"/>"/></td>
-                            <td><s:property value="id"/></td>
-                                <td><s:property value="costPrice"/> </td>
-                                <td><s:property value="sn"/> </td>
-                                <td><s:property value="imagePath"/> </td>
+                                <td> 
+                                		<a class="fancybox" href="<s:property value="imagePath"/>"  title="<s:property value="name"/>">
+                                		<img src="<s:property value="smallImagePath"/>" width="100">
+                                		</a>
+                                
+                                	
+                                </td>
+                          
                                 <td><s:property value="name"/> </td>
-                                <td><s:property value="brand"/> </td>
+                                <td><s:property value="sn"/> </td>
+                                <td><s:property value="brand.name"/> </td>
+                                <td><s:property value="costPrice"/> </td>
                                 <td><s:property value="salePrice"/> </td>
-                                <td><s:property value="intro"/> </td>
+                                
                             <td>
                                 <s:a namespace="" action="product_input">
                                     <s:param name="product.id" value="id"></s:param>

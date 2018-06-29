@@ -1,1 +1,4 @@
+com\xmg\pss\query\QueryObject.class
+com\xmg\pss\query\EmployeeQueryObject.class
+com\xmg\pss\query\CatQueryObject.class
 generator\ObjectProp.class
