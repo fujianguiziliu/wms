@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xmg.pss.mapper.StockIncomeBillMapper" >
+  <resultMap id="BaseResultMap" type="com.xmg.pss.domain.StockIncomeBill" >
+    <id column="id" property="id"  />
+	<result column="sn" property="sn"  />
+	<result column="vdate" property="vdate"  />
+	<result column="status" property="status"  />
+	<result column="auditTime" property="auditTime"  />
+	<result column="inputTime" property="inputTime"  />
+	<result column="totalAmount" property="totalAmount"  />
+	<result column="totalNumber" property="totalNumber"  />
+	
+	
+	<association property="auditor" column="inputUser_id" select="com.xmg.pss.mapper.EmployeeMapper.get">
+	</association>
+	<association property="inputUser" column="inputUser_id" select="com.xmg.pss.mapper.EmployeeMapper.get">
+	</association>
+	<association property="depot" column="depot_id" select="com.xmg.pss.mapper.DepotMapper.get">
+	</association>
+	<collection property="items" column="id" select="queryItemsByBillId"></collection>
+  </resultMap>
+  <resultMap id="BaseItemResultMap" type="com.xmg.pss.domain.StockIncomeBillItem" >
+    <id column="id" property="id"  />
+    <result column="costPrice" property="costPrice"/>
+    <result column="number" property="number"/>
+    <result column="amount" property="amount"/>
+    <result column="remark" property="remark"/>
+    		<association property="product" column="product_id" select="com.xmg.pss.mapper.ProductMapper.get"></association>
+  			<association property="bill" column="bill_id" select="get"></association>
+  </resultMap>
+  <delete id="delete" parameterType="long" >
+    delete from stockIncomeBill where id =#{id}
+  </delete>
+  <!--根据单据id删除入库单明细  -->
+  <delete id="deleteItemsByBillId">
+  	delete from stockIncomeBillItem
+  	where bill_id=#{billId}
+  </delete>
+  <insert id="save" parameterType="com.xmg.pss.domain.StockIncomeBill" useGeneratedKeys="true" keyProperty="id" >
+    insert into stockIncomeBill 
+    (sn,auditor_id,vdate,status,auditTime,inputTime,depot_id,totalAmount,totalNumber,inputUser_id)
+    values
+    (#{sn},#{auditor.id},#{vdate},#{status},#{auditTime},#{inputTime},#{depot.id},#{totalAmount},#{totalNumber},#{inputUser.id})
+  </insert>
+  <!--保存订明细  -->
+  <insert id="saveItem" parameterType="com.xmg.pss.domain.StockIncomeBillItem" useGeneratedKeys="true" keyProperty="id">
+  	insert into stockincomebillitem 
+  	(costPrice,number,amount,remark,product_id,bill_id)
+  	values
+  	(#{costPrice},#{number},#{amount},#{remark},#{product.id},#{bill.id})
+  	
+  </insert>
+  <update id="update" parameterType="com.xmg.pss.domain.StockIncomeBill" >
+    update stockIncomeBill
+    set
+	    sn=#{sn},
+	    auditor_id=#{auditor.id},
+	    vdate=#{vdate},
+	    status=#{status},
+	    auditTime=#{auditTime},
+	    inputTime=#{inputTime},
+	    depot_id=#{depot.id},
+	    totalAmount=#{totalAmount},
+	    totalNumber=#{totalNumber},
+	    inputUser_id=#{inputUser.id}
+    where id = #{id}
+  </update>
+  
+ <update id="audit">
+	  update stockIncomeBill
+	  set
+	  	status=#{status}, 
+	  	auditor_id=#{auditor.id},
+	  	auditTime=#{auditTime}
+ 		where id=#{id}
+  </update> 
+  <select id="get" resultMap="BaseResultMap" parameterType="long" >
+    select * from stockIncomeBill where id = #{id}
+  </select>
+  <select id="list" resultMap="BaseResultMap" >
+    select * from stockIncomeBill
+  </select>
+  <sql id="conditionSql">
+  	<where>
+  	</where>
+  </sql>
+  <select id="getTotalCount" resultType="long">
+  	select count(*) from stockIncomeBill
+  	<include refid="conditionSql"/>
+  </select>
+  <select id="pageQuery" resultMap="BaseResultMap">
+  	select * from stockIncomeBill
+  	<include refid="conditionSql"/>
+  	limit #{beginIndex},#{pageSize}
+  </select>
+  
+  <select id="queryItemsByBillId" resultMap="BaseItemResultMap">
+  	select * from stockIncomeBillItem
+  	where bill_id=#{billId}
+  </select>
+  
+</mapper>

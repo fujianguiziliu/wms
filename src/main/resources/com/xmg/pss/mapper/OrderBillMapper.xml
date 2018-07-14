@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xmg.pss.mapper.OrderBillMapper" >
+  <resultMap id="BaseResultMap" type="com.xmg.pss.domain.OrderBill" >
+    <id column="id" property="id"  />
+	<result column="sn" property="sn"  />
+	<result column="vdate" property="vdate"  />
+	<result column="status" property="status"  />
+	<result column="auditTime" property="auditTime"  />
+	<result column="inputTime" property="inputTime"  />
+	<result column="totalAmount" property="totalAmount"  />
+	<result column="totalNumber" property="totalNumber"  />
+	
+	
+	
+	<!-- <result column="items" property="items"  /> -->
+	
+	
+	<association property="auditor" column="inputUser_id" select="com.xmg.pss.mapper.EmployeeMapper.get">
+	</association>
+	<association property="inputUser" column="inputUser_id" select="com.xmg.pss.mapper.EmployeeMapper.get">
+	</association>
+	<association property="supplier" column="supplier_id" select="com.xmg.pss.mapper.SupplierMapper.get">
+	</association>
+	<collection property="items" column="id" select="queryItemsByBillId"></collection>
+  </resultMap>
+  
+    <resultMap id="BaseItemResultMap" type="com.xmg.pss.domain.OrderBillItem" >
+    	<id column="id" property="id"/>
+    	<result column="costPrice" property="costPrice"/>
+    	<result column="number" property="number"/>
+    	<result column="amount" property="amount"/>
+    	<result column="remark" property="remark"/>
+    		<association property="product" column="product_id" select="com.xmg.pss.mapper.ProductMapper.get"></association>
+  			<association property="bill" column="bill_id" select="get"></association>
+    </resultMap> 
+  
+  <delete id="delete" parameterType="long" >
+    delete from orderBill where id = #{id}
+  </delete>
+  <!--根据订单删除订单明细  -->
+  <delete id="deleteItemsByBillId">
+  	 delete from orderBillItem where bill_id = #{billId}
+  </delete>
+  <insert id="save" parameterType="com.xmg.pss.domain.OrderBill" useGeneratedKeys="true" keyProperty="id" >
+    insert into orderBill 
+    (sn,auditor_id,vdate,status,auditTime,inputTime,totalAmount,totalNumber,inputUser_id,supplier_id)
+    values
+    (#{sn},#{auditor.id},#{vdate},#{status},#{auditTime},#{inputTime},#{totalAmount},#{totalNumber},#{inputUser.id},#{supplier.id})
+  </insert>
+  <insert id="saveItem">
+  	insert into orderbillItem 
+  	(costPrice,number,amount,remark,product_id,bill_id)
+  	values (#{costPrice},#{number},#{amount},#{remark},#{product.id},#{bill.id})
+  </insert>
+  <update id="update" parameterType="com.xmg.pss.domain.OrderBill" >
+    update orderBill
+    set
+	    sn=#{sn},
+	   <!--  auditor_id=#{auditor.id}, -->
+	    vdate=#{vdate},
+	  
+	    <!-- status=#{status},
+	    auditTime=#{auditTime},
+	    inputTime=#{inputTime}, -->
+	    totalAmount=#{totalAmount},
+	    totalNumber=#{totalNumber},
+	    <!-- inputUser_id=#{inputUser.id}, -->
+	    supplier_id=#{supplier.id}
+    where id = #{id}
+  </update>
+  <update id="audit">
+  		update orderBill 
+  		SET 
+  		status=#{status},
+  		auditor_id=#{auditor.id},
+  		auditTime=#{auditTime}
+  		where id=#{id}
+  </update>
+  <select id="queryItemsByBillId" parameterType="long" resultMap="BaseItemResultMap">
+  	select * from orderbillItem where bill_id=#{billId}
+  </select>
+  <select id="get" resultMap="BaseResultMap"  >
+    select * from orderBill where id = #{id}
+  </select>
+  <select id="list" resultMap="BaseResultMap" >
+    select * from orderBill
+  </select>
+  <sql id="conditionSql">
+  	<where>
+  		<if test="beginDate!=null">
+  			and vdate &gt;= #{beginDate}
+  		</if>
+  		<if test="endDate!=null">
+  		  	and vdate &lt;= #{endDate}
+  		</if>
+  		<if test="supplierId>0">
+  			and supplier_id=#{supplierId}
+  		</if>
+  		<if test="status>-1">
+  			and status=#{status}
+  		</if>
+  	</where>
+  </sql>
+  <select id="getTotalCount" resultType="long">
+  	select count(*) from orderBill
+  	<include refid="conditionSql"/>
+  </select>
+  <select id="pageQuery" resultMap="BaseResultMap">
+  	select * from orderBill
+  	<include refid="conditionSql"/>
+  	limit #{beginIndex},#{pageSize}
+  </select>
+</mapper>

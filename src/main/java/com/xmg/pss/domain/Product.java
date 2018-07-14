@@ -3,9 +3,13 @@ package com.xmg.pss.domain;
 import generator.ObjectProp;
 
 import java.math.BigDecimal;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.xmlbeans.impl.xb.xsdschema.Public;
+
+import com.alibaba.fastjson.JSON;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -40,8 +44,19 @@ public class Product extends BasicDomain{
 		}
 		return "";
 		
+		
+		
 	}
 	
 	
-	
+	public String getProductJson(){
+		Map<String,Object> map = new HashMap<>();
+		map.put("id", getId());
+		map.put("name", getName());
+		map.put("costPrice", getCostPrice());
+		map.put("brandName", getBrand()==null?"":getBrand().getName());
+		
+		return JSON.toJSONString(map);
+		
+	}
 }

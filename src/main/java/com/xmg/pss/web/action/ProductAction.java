@@ -38,6 +38,7 @@ public class ProductAction extends BaseAction {
 	@RequiredPermission("货品管理列表")
 	public String execute(){
 		try {
+			putContext("brands", brandService.list());
 			putContext("result", productService.pageQuery(qo));
 		}catch (Exception e){
 			e.printStackTrace();
@@ -64,7 +65,10 @@ public class ProductAction extends BaseAction {
 	public String saveOrUpdate() {
 		try {
 			if (pic!=null) {
-				
+				/*product = productService.get(product.getId());
+				if (StringUtils.isNotEmpty(product.getImagePath())) {
+					FileUploadUtil.deleteFile(product.getImagePath());
+				}*/
 				String uploadFile = FileUploadUtil.uploadFile(pic, picFileName);
 				product.setImagePath(uploadFile);
 			}
@@ -98,6 +102,19 @@ public class ProductAction extends BaseAction {
 			putMsg(e.getMessage());
 		}
 		return NONE;
+	}
+	
+	//商品选择页面
+	public String selectProduct() throws Exception{
+		try {
+			putContext("brands", brandService.list());
+			putContext("result", productService.pageQuery(qo));
+		}catch (Exception e){
+			e.printStackTrace();
+			addActionError(e.getMessage());
+		}
+		return "selectProduct";
+		
 	}
 
 }

@@ -42,4 +42,19 @@
 <bean id="productMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
     <property name="mapperInterface" value="com.xmg.pss.mapper.ProductMapper"/>
     <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+</bean><bean id="orderBillMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+    <property name="mapperInterface" value="com.xmg.pss.mapper.OrderBillMapper"/>
+    <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+</bean><bean id="depotMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+    <property name="mapperInterface" value="com.xmg.pss.mapper.DepotMapper"/>
+    <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+</bean><bean id="stockIncomeBillMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+    <property name="mapperInterface" value="com.xmg.pss.mapper.StockIncomeBillMapper"/>
+    <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+</bean><bean id="clientMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+    <property name="mapperInterface" value="com.xmg.pss.mapper.ClientMapper"/>
+    <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+</bean><bean id="productStockMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+    <property name="mapperInterface" value="com.xmg.pss.mapper.ProductStockMapper"/>
+    <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
 </bean></beans>

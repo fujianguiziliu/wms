@@ -1,22 +1,15 @@
 package generator;
 
-import freemarker.template.Configuration;
-import freemarker.template.Template;
-
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.StringWriter;
 import java.text.MessageFormat;
 
+import com.xmg.pss.domain.ProductStock;
 
-import com.xmg.pss.domain.Brand;
-import com.xmg.pss.domain.Cat;
-import com.xmg.pss.domain.Product;
-
-
-import com.xmg.pss.domain.Supplier;
-import com.xmg.pss.domain.SystemMenu;
+import freemarker.template.Configuration;
+import freemarker.template.Template;
 
 public class CodeGenerator {
 	private static Configuration conf = new Configuration(Configuration.VERSION_2_3_0);
@@ -30,7 +23,7 @@ public class CodeGenerator {
 	}
 	public static void main(String[] args) throws Exception{
 		System.out.println("执行开始.......");
-		//codeGenerator(Product.class);
+		//codeGenerator(ProductStock.class);
 		System.out.println("执行完毕。。。。。。");
 		
 	}

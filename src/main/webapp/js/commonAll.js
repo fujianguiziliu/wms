@@ -112,7 +112,29 @@ $(function(){
 				cancel:true
 			})
 		});
-})
+		//审核操作
+		$(".btn_audit").click(function(){
+			var url=$(this).data("url");
+			$.dialog({
+				title:"温馨提示",
+				content:"亲，确定要审核操作吗？",
+				ok:function(){
+					console.log(url);
+					$.get(url,function(data){
+						$.dialog({
+							title:"温馨提示",
+							content:data,
+							ok:function(){
+								window.location.reload();
+							}
+						})
+					})
+				},
+				cancel:true
+			
+			})
+		})
+	})
 
 
 

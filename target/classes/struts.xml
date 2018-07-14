@@ -6,6 +6,7 @@
 <struts>
 	<constant name="struts.devMode" value="true" />
 	<constant name="struts.ui.theme" value="simple" />
+	<constant name="struts.locale" value="zh_cn" />
 
 	<package name="pssPkg" extends="struts-default" namespace="/">
 	<!-- 注册拦截器 -->
@@ -53,6 +54,9 @@
 			</result>
 		</action>
 		<action name="*_*" class="{1}Action" method="{2}">
+			<result name="{2}">
+				/WEB-INF/views/{1}/{2}.jsp
+			</result>
 			<result name="list">
 				/WEB-INF/views/{1}/list.jsp
 			</result>
@@ -62,6 +66,7 @@
 			<result name="input">
 				/WEB-INF/views/{1}/input.jsp
 			</result>
+			
 		</action>
 
 		<action name="login" class="loginAction">

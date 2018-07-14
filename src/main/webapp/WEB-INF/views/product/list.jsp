@@ -30,17 +30,17 @@
             <div class="ui_text_indent">
                 <div id="box_border">
                     <div id="box_top">搜索</div>
-     <%--               <div id="box_center">
-                        姓名/邮箱
+                   <div id="box_center">
+                        编码/名称
                         <s:textfield name="qo.keyword" class="ui_input_txt02"/>
-                        所属部门
-                        <s:select list="#depts" listKey="id" listValue="name" name="qo.deptId"
+                        品牌
+                        <s:select list="#brands" listKey="id" listValue="name" name="qo.brandId"
                                   headerKey="-1" headerValue="全部" class="ui_select01"/>
-                    </div> --%>
+                    </div>
                     <div id="box_bottom">
 
-<!--                         <input type="button" value="查询" class="ui_input_btn01 btn_page"  data-page="1"/>
- -->
+                        <input type="button" value="查询" class="ui_input_btn01 btn_page"  data-page="1"/>
+
                         <input type="button" value="新增" class="ui_input_btn01 btn_input"
                                data-url="<s:url namespace="/" action="product_input"/>"/>
                       <%--  <input type="button" value="批量删除" class="ui_input_btn01 btn_batchDelete"
